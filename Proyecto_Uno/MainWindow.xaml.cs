@@ -23,6 +23,7 @@ namespace Proyecto_Uno
         public MainWindow()
         {
             InitializeComponent();
+            MessageBox.Show("Archivo creado.");
         }
     }
 }
