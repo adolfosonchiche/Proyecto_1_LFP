@@ -1,0 +1,15 @@
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\bin\Debug\Proyecto_Uno.exe.config
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\bin\Debug\Proyecto_Uno.exe
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\bin\Debug\Proyecto_Uno.pdb
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno.csprojAssemblyReference.cache
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\MainWindow.g.cs
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\App.g.cs
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno_MarkupCompile.cache
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno_MarkupCompile.lref
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\MainWindow.baml
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno.g.resources
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno.Properties.Resources.resources
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno.csproj.GenerateResource.cache
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno.csproj.CoreCompileInputs.cache
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno.exe
+C:\Users\elektra\source\repos\Proyecto_1_LFP\Proyecto_Uno\obj\Debug\Proyecto_Uno.pdb
