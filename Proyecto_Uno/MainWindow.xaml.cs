@@ -24,5 +24,15 @@ namespace Proyecto_Uno
         {
             InitializeComponent();
         }
+
+        private void menuGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("no se creo nada.");
+        }
+
+        private void itemSalir_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("no se creo nada.");
+        }
     }
 }
