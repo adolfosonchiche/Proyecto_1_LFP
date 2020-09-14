@@ -13,20 +13,19 @@ namespace Proyecto_Uno
 {
     class Archivo
     {
+        /* declaracion de variables*/
         private String mensaje = "";
         private String pat = "";
         String nuevoPat = "";
-        /* Metodo para guardar un archivo nuevo*/
+
+        /* Metodo para guardar un archivo nuevo o crear un archivo
+         *tambien para guardar archivos ya creados*/
         public void guardarDocumeto(string mensaje)
         {
-            this.mensaje = mensaje;
-            // Stream myStream;
-
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "gt files (*.gt)|*.gt";
             saveFile.FilterIndex = 2;
             saveFile.RestoreDirectory = true;
-            //OpenFileDialog file = new OpenFileDialog();
 
             if (pat.Equals(""))
             {
@@ -35,7 +34,6 @@ namespace Proyecto_Uno
 
                     if (saveFile.ShowDialog() == true)
                     {
-
                         if (File.Exists(saveFile.FileName))
                         {
                             pat = saveFile.FileName;
@@ -83,6 +81,7 @@ namespace Proyecto_Uno
             }
         }
 
+        /* Metodo para abrir un archivo*/
         public void abrirDocumetno(RichTextBox txt_ingreso)
         {
             String resultado = "";
@@ -107,6 +106,8 @@ namespace Proyecto_Uno
             }
         }
 
+        /* Metodo para preguntar al usuario y guardar su seleccion
+         * si desea guradar el archivo antes de cerrarlo */
         public void mensajeGuardar(String texto, String mensaje,
             RichTextBox txtIngresoCodigo)
         {
@@ -137,16 +138,19 @@ namespace Proyecto_Uno
             }
         }
 
+        /* Metodo que retorna el pat de un archivo*/
         public String getPat()
         {
             return pat;
         }
 
+        /* Metodo para establecer un nuevo valor al pat de un archivo*/
         public void setPat(String pat)
         {
             this.pat = pat;
         }
 
+        /* Metodo que guarda el pat anterior para que el usuario busque otro pat*/
         public void nuevoGuardar()
         {
             nuevoPat = pat;
