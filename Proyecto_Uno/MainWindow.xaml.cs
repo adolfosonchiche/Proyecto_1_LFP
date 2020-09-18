@@ -96,5 +96,6 @@ namespace Proyecto_Uno
             archivo.nuevoGuardar();
             archivo.guardarDocumeto(mensaje);
         }
+
     }
 }

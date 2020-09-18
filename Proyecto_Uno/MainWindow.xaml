@@ -30,11 +30,13 @@
             <MenuItem x:Name="menuCerrar" Header="Cerrar" Height="40.5" Width="158" FontSize="15" Background="#FF1077A6" Click="menuCerrar_Click"/>
             <MenuItem x:Name="menuEliminar" Header="Ayuda" Height="40.5" Width="158" Background="#FF1077A6"/>
         </Menu>
-        <RichTextBox x:Name="txtIngresoCodigo" Height="289.5" Canvas.Left="42.5" Canvas.Top="67.5" Width="991.5" Block.LineHeight="1" Background="#FFC9F5EF">
+        <RichTextBox x:Name="txtIngresoCodigo" Height="257.5" Canvas.Left="42.5" Canvas.Top="67.5" Width="991.5" Block.LineHeight="1" Background="#FFC9F5EF">
             <FlowDocument>
-                <Paragraph TextIndent="2"/>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <TextBox Height="159" Canvas.Left="42.5" TextWrapping="Wrap" Canvas.Top="418.5" Width="991.5" Background="#FF82DC96" IsEnabled="False"/>
+        <TextBox Height="159" Canvas.Left="42.5" TextWrapping="Wrap" Canvas.Top="394" Width="991.5" Background="#FF82DC96" IsEnabled="False"/>
     </Canvas>
 </Window>
