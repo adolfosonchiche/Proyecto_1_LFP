@@ -10,53 +10,50 @@ namespace P1_LENGUAJES_FP
         private String[] operadores = new String[] { "+", "-", "*", "/",
                        "<", ">", "!", "|", "&", "(", ")"};
         private String[] simbolo = new String[] { "=", ";" };
-        private int estadoInicial = 0;
+        private int estado = 0;
         private string tokensInicial;
         private string tokens = "";
+        PintaTokens pintaT = new PintaTokens();
 
-        public void entrarEstadoInicial(KeyEventArgs e, RichTextBox rtb)
+        public void obtenerEstado(KeyPressEventArgs e, RichTextBox rtbError)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                MessageBox.Show("enter");
-            }
-            else if (e.KeyCode == Keys.Space)
-            {
-                MessageBox.Show("space");
-            }
-            else
-            {
-                tokensInicial = e.KeyCode.ToString();
-              int p = rtb.SelectionStart = rtb.SelectionStart;
-              String a =  rtb.Find(tokensInicial, p, rtb.TextLength, RichTextBoxFinds.WholeWord).ToString();
+            Char tokenIngresado = e.KeyChar;
 
-                for (int i = 0; i < operadores.Length; i++)
-                {
-                    if (operadores[i].Equals(tokensInicial))
-                    {
-                        tokens = tokensInicial;
-                        tokensInicial = "";
-                        MessageBox.Show("operador " + tokens);
-                        break;
-                    }
-                }
+            for(int cont = 0; cont < pintaT.getOperadorSigno().Length; cont++)
 
-                for(int j = 0; j < simbolo.Length; j++)
-                {
-                    if (simbolo[j].Equals(tokensInicial))
-                    {
-                        tokens = tokensInicial;
-                        tokensInicial = "";
-                        MessageBox.Show("simbolo " + tokens);
-                        break;
-                    }
-                }
+            switch (estado)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+                default:
+
+                    break;
             }
-        }
-        public void estdoUno()
-        {
 
         }
 
+      
     }
 }

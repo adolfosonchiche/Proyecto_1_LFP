@@ -9,7 +9,7 @@ namespace P1_LENGUAJES_FP
     class PintaTokens
     {
 
-        string[] textoReservadoApintar = new string[] { "entero", "decimal", "cadena", "booleano",
+        string[] textoReservado = new string[] { "entero", "decimal", "cadena", "booleano",
             "caracter", "SI", "SINO", "SINO_SI", "MIENTRAS", "HACER", "DESDE", "HASTA", "INCREMENTO"};
 
         string[] signosOperadores = new string[] { "\"", "+", "-", "*", "++", "--", "*", "/", "<", ">",
@@ -27,9 +27,11 @@ namespace P1_LENGUAJES_FP
                 txtTexto.SelectionStart = 0;
                 txtTexto.SelectionLength = txtTexto.TextLength;
                 txtTexto.SelectionColor = txtTexto.ForeColor;
+                String tokenIngresado = txtTexto.SelectedText;
+                //MessageBox.Show("el texto es: " + tokenIngresado);
 
                 /* ciclo para comprobar tokens y pintarlos */
-                foreach (string reservadaAuxiliar in textoReservadoApintar)
+                foreach (string reservadaAuxiliar in textoReservado)
                 { 
                     int INDEX = 0;  /* posicion de tokens*/
                     /*ciclo  para buscar la palabra  */
@@ -108,7 +110,7 @@ namespace P1_LENGUAJES_FP
                         {
                             txtTextoIngresado.SelectionStart = wordStartIndex;
                             txtTextoIngresado.SelectionLength = word.Length;
-
+                         
                             if (word.Equals("+") || word.Equals("-") || word.Equals("*") || word.Equals("/") || 
                                    word.Equals("++") || word.Equals("--") || word.Equals(">") ||
                                    word.Equals("<") || word.Equals(">=") || word.Equals("<=") ||
@@ -131,8 +133,8 @@ namespace P1_LENGUAJES_FP
                     }
 
                 }
-                txtTextoIngresado.SelectionStart = txtTextoIngresado.TextLength;
-                txtTextoIngresado.SelectionColor = txtTextoIngresado.ForeColor;
+                 txtTextoIngresado.SelectionStart = txtTextoIngresado.TextLength;
+                //txtTextoIngresado.SelectionColor = txtTextoIngresado.ForeColor;
 
             }
             catch (Exception e)
@@ -140,5 +142,16 @@ namespace P1_LENGUAJES_FP
                 Console.WriteLine("error al pintar signos u operadores " + e);
             }
         }
+
+        public String[] getOperadorSigno()
+        {
+            return signosOperadores;
+        }
+
+        public String[] getTextoReservado()
+        {
+            return textoReservado;
+        }
+
     }
 }

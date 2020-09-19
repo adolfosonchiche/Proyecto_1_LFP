@@ -55,6 +55,7 @@
             this.txtIngresoCodigo.Size = new System.Drawing.Size(762, 296);
             this.txtIngresoCodigo.TabIndex = 0;
             this.txtIngresoCodigo.Text = "";
+            this.txtIngresoCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIngresoCodigo_KeyPress);
             this.txtIngresoCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIngresoCodigo_KeyUp);
             // 
             // button1
