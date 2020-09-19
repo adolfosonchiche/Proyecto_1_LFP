@@ -16,12 +16,14 @@ namespace P1_LENGUAJES_FP
         private Automata automata;
         private PintaTokens pinta;
         private String mensaje = "";
+
         public Form1()
         {
             InitializeComponent();
             archivo = new Archivo();
-            automata = new Automata();
             pinta = new PintaTokens();
+            automata = new Automata();
+            automata.iniciarVaiables(pinta);
         }
 
         public void obtenerTextoRichText()

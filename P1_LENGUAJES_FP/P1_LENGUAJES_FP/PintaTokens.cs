@@ -13,7 +13,7 @@ namespace P1_LENGUAJES_FP
             "caracter", "SI", "SINO", "SINO_SI", "MIENTRAS", "HACER", "DESDE", "HASTA", "INCREMENTO"};
 
         string[] signosOperadores = new string[] { "\"", "+", "-", "*", "++", "--", "*", "/", "<", ">",
-           "<=", ">=", "==", "!=", "!", "||", "&&", "(", ")", "=", ";", "\""};
+           "<=", ">=", "==", "!=", "!", "||", "&&", "(", ")", "=", ";"};
 
 
         public void pintarTextoReservada(RichTextBox txtTexto)

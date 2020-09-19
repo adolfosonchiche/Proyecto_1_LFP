@@ -49,7 +49,7 @@
             // 
             // txtIngresoCodigo
             // 
-            this.txtIngresoCodigo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtIngresoCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtIngresoCodigo.Location = new System.Drawing.Point(26, 40);
             this.txtIngresoCodigo.Name = "txtIngresoCodigo";
             this.txtIngresoCodigo.Size = new System.Drawing.Size(762, 296);
@@ -147,9 +147,9 @@
             // 
             // txtSalidaError
             // 
-            this.txtSalidaError.Enabled = false;
             this.txtSalidaError.Location = new System.Drawing.Point(26, 390);
             this.txtSalidaError.Name = "txtSalidaError";
+            this.txtSalidaError.ReadOnly = true;
             this.txtSalidaError.Size = new System.Drawing.Size(762, 116);
             this.txtSalidaError.TabIndex = 3;
             this.txtSalidaError.Text = "";
@@ -159,9 +159,9 @@
             this.labeOutput.AutoSize = true;
             this.labeOutput.Location = new System.Drawing.Point(26, 372);
             this.labeOutput.Name = "labeOutput";
-            this.labeOutput.Size = new System.Drawing.Size(48, 15);
+            this.labeOutput.Size = new System.Drawing.Size(41, 15);
             this.labeOutput.TabIndex = 4;
-            this.labeOutput.Text = "Output:";
+            this.labeOutput.Text = "Salida:";
             // 
             // labelFila
             // 
