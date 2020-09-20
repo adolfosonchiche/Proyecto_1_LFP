@@ -7,61 +7,132 @@ namespace P1_LENGUAJES_FP
     class EstadoNoAceptacion : Automata
     {
 
-        public void estadoA(Char token)
+        public int estadoA(Char token)
         {
-            String tok = token.ToString();
+            tok = token.ToString();
             if (tok.Equals("0") || tok.Equals("1") || tok.Equals("2") || tok.Equals("3") 
                 || tok.Equals("4") || tok.Equals("5") || tok.Equals("6") || tok.Equals("7")
                 || tok.Equals("8") || tok.Equals("9"))
             {
-                estado = 1;
+                return 1;
+            }
+            else if (tok.Equals("\""))
+            {
+                return 7;
+            }
+            else if (tok.Equals("/"))
+            {
+                return 4;
+            }
+            else 
+            {
+                errorToken = false;
+                return 3;
             }
         }
 
 
 
-        public void estadoC()
+        public int estadoC(Char token)
         {
+            tok = token.ToString();
+            if (tok.Equals("0") || tok.Equals("1") || tok.Equals("2") || tok.Equals("3")
+                || tok.Equals("4") || tok.Equals("5") || tok.Equals("6") || tok.Equals("7")
+                || tok.Equals("8") || tok.Equals("9"))
+            {
+                errorToken = true;
+                return 1;
+            }
+            else
+            {
+                errorToken = true;
+                return 2;
+            }
+        }
 
+        public int estadoE(Char token)
+        {
+            tok = token.ToString();
+            if (tok.Equals("/"))
+            {
+                errorToken = true;
+                return 8;
+            }
+            else if (tok.Equals("*"))
+            {
+                errorToken = true;
+                return 9;
+            }
+             else 
+            {
+                errorToken = true;
+                return 4;
+            }
+        }
+
+        public int estadoF(Char token)
+        {
+            tok = token.ToString();
+            if (tok.Equals("*"))
+            {
+                errorToken = true;
+                return 11;
+            }
+            else
+            {
+                errorToken = true;
+                return 5;
+            }
+        }
+
+        public int estadoG(Char token)
+        {
+            tok = token.ToString();
+            if (tok.Equals("\""))
+            {
+                errorToken = false;
+                return 3;
+            }           
+            else
+            {
+                errorToken = true;
+                return 6;
+            }
+        }
+
+        public int estadoH(Char token)
+        {
+                errorToken = true;
+                return 6;        
+        }
+
+        public int estadoI(Char token)
+        {
+            errorToken = false;
+            return 10;
+        }
+
+        public int estadoJ(Char token)
+        {
+            errorToken = true;
+            return 5;
         }
 
 
 
-        public void estadoE()
+        public int estadoL(Char token)
         {
-
-        }
-
-        public void estadoF()
-        {
-
-        }
-
-        public void estadoG()
-        {
-
-        }
-
-        public void estadoH()
-        {
-
-        }
-
-        public void estadoI()
-        {
-
-        }
-
-        public void estadoJ()
-        {
-
-        }
-
-
-
-        public void estadoL()
-        {
-
+            tok = token.ToString();
+            if (tok.Equals("/"))
+            {
+                errorToken = false;
+                return 3;
+            }
+            else
+            {
+                errorToken = true;
+                return 11;
+            }
         }
 
     }

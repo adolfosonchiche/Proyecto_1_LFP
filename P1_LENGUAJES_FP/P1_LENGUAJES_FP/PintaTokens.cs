@@ -12,7 +12,7 @@ namespace P1_LENGUAJES_FP
         string[] textoReservado = new string[] { "entero", "decimal", "cadena", "booleano",
             "caracter", "SI", "SINO", "SINO_SI", "MIENTRAS", "HACER", "DESDE", "HASTA", "INCREMENTO"};
 
-        string[] signosOperadores = new string[] { "\"", "+", "-", "*", "++", "--", "*", "/", "<", ">",
+        string[] signosOperadores = new string[] {"+", "-", "*", "++", "--", "/", "<", ">",
            "<=", ">=", "==", "!=", "!", "||", "&&", "(", ")", "=", ";"};
 
 
@@ -27,8 +27,6 @@ namespace P1_LENGUAJES_FP
                 txtTexto.SelectionStart = 0;
                 txtTexto.SelectionLength = txtTexto.TextLength;
                 txtTexto.SelectionColor = txtTexto.ForeColor;
-                String tokenIngresado = txtTexto.SelectedText;
-                //MessageBox.Show("el texto es: " + tokenIngresado);
 
                 /* ciclo para comprobar tokens y pintarlos */
                 foreach (string reservadaAuxiliar in textoReservado)
