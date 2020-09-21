@@ -128,6 +128,7 @@ namespace P1_LENGUAJES_FP
             else if (result == DialogResult.No)
             {
                 txtIngresoCodigo.Clear();
+                txtError.Clear();
                 mensaje = "";
                 pat = "";
             }
