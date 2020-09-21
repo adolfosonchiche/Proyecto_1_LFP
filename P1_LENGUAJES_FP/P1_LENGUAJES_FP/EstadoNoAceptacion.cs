@@ -7,6 +7,11 @@ namespace P1_LENGUAJES_FP
     class EstadoNoAceptacion : Automata
     {
 
+        /*metodo estado A inicial
+         * retorna un 1 si es un entero, decimal
+         * retorna un 7 si es una cadena
+         *retorna un 4 si es un comentario
+         * retorna 3 si es un caracter, palabra reservada*/
         public int estadoA(Char token)
         {
             tok = token.ToString();
@@ -31,8 +36,7 @@ namespace P1_LENGUAJES_FP
             }
         }
 
-
-
+        /*metodo de estado C , retorna un 1 si es un numero, o 2 si es un punto*/
         public int estadoC(Char token)
         {
             tok = token.ToString();
@@ -56,6 +60,8 @@ namespace P1_LENGUAJES_FP
             }
         }
 
+        /*Estado E, retorna 8 si es un diagonal o un 9 si es un * 
+         * retorna 4 si no se ingresa nada de lo anterior*/
         public int estadoE(Char token)
         {
             tok = token.ToString();
@@ -76,6 +82,7 @@ namespace P1_LENGUAJES_FP
             }
         }
 
+        /*estado F etorna 11 si es un *, retorna 5 si es otro tipo de token*/
         public int estadoF(Char token)
         {
             tok = token.ToString();
@@ -92,6 +99,7 @@ namespace P1_LENGUAJES_FP
             }
         }
 
+        /*retorna 3 si es un comilla, retorna 6 si es otro tipo de token*/
         public int estadoG(Char token)
         {
             tok = token.ToString();
@@ -108,26 +116,28 @@ namespace P1_LENGUAJES_FP
             }
         }
 
+        /*retorna 6 no importa el token  ingresada*/
         public int estadoH(Char token)
         {
                 errorToken = true;
                 return 6;        
         }
 
+        /*retorna 10 no importa el token  ingresada*/
         public int estadoI(Char token)
         {
             errorToken = false;
             return 10;
         }
 
+        /*retorna 5 no importa el token  ingresada*/
         public int estadoJ(Char token)
         {
             errorToken = true;
             return 5;
         }
 
-
-
+        /*retorna 3 si se ingresa un diagonal, retorna 11 si es otro tipo de token*/
         public int estadoL(Char token)
         {
             tok = token.ToString();

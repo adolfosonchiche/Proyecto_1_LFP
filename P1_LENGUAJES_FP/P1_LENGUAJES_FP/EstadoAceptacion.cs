@@ -6,7 +6,8 @@ namespace P1_LENGUAJES_FP
 {
     class EstadoAceptacion  : Automata 
     {
-
+        /*retorna 1 si se ingresa un numero, retorna 2 si es un punto, 
+         * retornaa 1 si es un otro token*/
         public int estadoB(Char token)
         {
             tok = token.ToString();
@@ -31,6 +32,8 @@ namespace P1_LENGUAJES_FP
            
         }
 
+        /*retorna 0 si es un token vacio, 
+         * retorna 3 si es un token de tipo letra*/
         public int estadoD(Char token)
         {
             if (tok.Equals(" "))
@@ -45,6 +48,7 @@ namespace P1_LENGUAJES_FP
             }
         }
 
+        /*retorna 10 no importa el token  ingresada*/
         public int estadoK(Char token)
         {
             cadCom = 1;

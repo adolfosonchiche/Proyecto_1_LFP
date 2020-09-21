@@ -14,7 +14,6 @@ namespace P1_LENGUAJES_FP
     {
 
         /* declaracion de variables*/
-        private String mensaje = "";
         private String pat = "";
         String nuevoPat = "";
 
@@ -82,7 +81,7 @@ namespace P1_LENGUAJES_FP
         }
 
         /* Metodo para abrir un archivo*/
-        public void abrirDocumetno(RichTextBox txt_ingreso)
+        public void abrirDocumetno(RichTextBox txt_ingreso, RichTextBox salidaError)
         {
             String resultado = "";
             OpenFileDialog openFile = new OpenFileDialog();
@@ -97,6 +96,7 @@ namespace P1_LENGUAJES_FP
                 }
                 txt_ingreso.Clear();
                 txt_ingreso.AppendText(resultado);
+                salidaError.Clear();
                 MessageBox.Show("Archivo leido correctamente.", "Abrir archivo");
 
             }
@@ -109,9 +109,8 @@ namespace P1_LENGUAJES_FP
         /* Metodo para preguntar al usuario y guardar su seleccion
          * si desea guradar el archivo antes de cerrarlo */
         public void mensajeGuardar(String texto, String mensaje,
-            RichTextBox txtIngresoCodigo)
+            RichTextBox txtIngresoCodigo, RichTextBox txtError)
         {
-            this.mensaje = mensaje;
             string message = "Deseas guardar el documento.!";
             string caption = texto;
             MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
@@ -122,6 +121,7 @@ namespace P1_LENGUAJES_FP
             {
                 guardarDocumeto(mensaje);
                 txtIngresoCodigo.Clear();
+                txtError.Clear();
                 mensaje = "";
                 pat = "";
             }
@@ -155,6 +155,69 @@ namespace P1_LENGUAJES_FP
         {
             nuevoPat = pat;
             pat = "";
+        }
+
+        /* Metodo para guardar los errores que existen
+         * que estan en la componente de salida
+         *tambien para guardar archivos ya creados*/
+        public void guardarErrores(string mensaje, String pat)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "gt files (*.gtE)|*.gtE";
+            saveFile.FilterIndex = 2;
+            saveFile.RestoreDirectory = true;
+
+            if (pat.Equals(""))
+            {
+                try
+                {
+
+                    if (saveFile.ShowDialog() == DialogResult.OK)
+                    {
+                        if (File.Exists(saveFile.FileName))
+                        {
+                            pat = saveFile.FileName;
+                            StreamWriter texto = File.CreateText(pat);
+                            texto.Write(mensaje + "\n");
+                            texto.Close();
+
+                        }
+                        else
+                        {
+                            pat = saveFile.FileName;
+                            StreamWriter texto = File.CreateText(pat);
+                            texto.Write(mensaje);
+                            texto.Close();
+                        }
+                        MessageBox.Show("Archivo creado.", "Guardar archivo");
+                    }
+                    else
+                    {
+                        MessageBox.Show("no se creo nada.", "Guardaar Archivo");
+                    }
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error en guardar el archivo.", "Guardar archivo");
+                    pat = nuevoPat;
+                }
+
+            }
+            else
+            {
+                try
+                {
+                    StreamWriter texto = File.CreateText(pat);
+                    texto.Write(mensaje);
+                    texto.Close();
+                    MessageBox.Show("Archivo guradado Exitosamente.", "Guardar archivo");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error: no se puedo guardar el archivo", "Guardar Arcchivo");
+                }
+            }
         }
     }
 }

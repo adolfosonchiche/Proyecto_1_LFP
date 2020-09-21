@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtIngresoCodigo = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardarError = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemAbrir = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,20 +52,21 @@
             this.txtIngresoCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtIngresoCodigo.Location = new System.Drawing.Point(26, 40);
             this.txtIngresoCodigo.Name = "txtIngresoCodigo";
-            this.txtIngresoCodigo.Size = new System.Drawing.Size(854, 354);
+            this.txtIngresoCodigo.Size = new System.Drawing.Size(890, 376);
             this.txtIngresoCodigo.TabIndex = 0;
             this.txtIngresoCodigo.Text = "";
             this.txtIngresoCodigo.Click += new System.EventHandler(this.txtIngresoCodigo_Click);
             this.txtIngresoCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIngresoCodigo_KeyPress);
             // 
-            // button1
+            // btnGuardarError
             // 
-            this.button1.Location = new System.Drawing.Point(26, 585);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Guardar Errores";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGuardarError.Location = new System.Drawing.Point(26, 613);
+            this.btnGuardarError.Name = "btnGuardarError";
+            this.btnGuardarError.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardarError.TabIndex = 1;
+            this.btnGuardarError.Text = "Guardar Errores";
+            this.btnGuardarError.UseVisualStyleBackColor = true;
+            this.btnGuardarError.Click += new System.EventHandler(this.btnGuardarError_Click);
             // 
             // menuStrip1
             // 
@@ -77,7 +78,7 @@
             this.menuAyuda});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(922, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(948, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -147,17 +148,17 @@
             // 
             // txtSalidaError
             // 
-            this.txtSalidaError.Location = new System.Drawing.Point(26, 451);
+            this.txtSalidaError.Location = new System.Drawing.Point(26, 470);
             this.txtSalidaError.Name = "txtSalidaError";
             this.txtSalidaError.ReadOnly = true;
-            this.txtSalidaError.Size = new System.Drawing.Size(854, 128);
+            this.txtSalidaError.Size = new System.Drawing.Size(890, 137);
             this.txtSalidaError.TabIndex = 3;
             this.txtSalidaError.Text = "";
             // 
             // labeOutput
             // 
             this.labeOutput.AutoSize = true;
-            this.labeOutput.Location = new System.Drawing.Point(26, 433);
+            this.labeOutput.Location = new System.Drawing.Point(26, 452);
             this.labeOutput.Name = "labeOutput";
             this.labeOutput.Size = new System.Drawing.Size(41, 15);
             this.labeOutput.TabIndex = 4;
@@ -166,7 +167,7 @@
             // labelFila
             // 
             this.labelFila.AutoSize = true;
-            this.labelFila.Location = new System.Drawing.Point(717, 397);
+            this.labelFila.Location = new System.Drawing.Point(739, 419);
             this.labelFila.Name = "labelFila";
             this.labelFila.Size = new System.Drawing.Size(40, 15);
             this.labelFila.TabIndex = 5;
@@ -175,7 +176,7 @@
             // labelColumna
             // 
             this.labelColumna.AutoSize = true;
-            this.labelColumna.Location = new System.Drawing.Point(539, 397);
+            this.labelColumna.Location = new System.Drawing.Point(537, 419);
             this.labelColumna.Name = "labelColumna";
             this.labelColumna.Size = new System.Drawing.Size(71, 15);
             this.labelColumna.TabIndex = 6;
@@ -185,12 +186,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 620);
+            this.ClientSize = new System.Drawing.Size(948, 648);
             this.Controls.Add(this.labelColumna);
             this.Controls.Add(this.labelFila);
             this.Controls.Add(this.labeOutput);
             this.Controls.Add(this.txtSalidaError);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGuardarError);
             this.Controls.Add(this.txtIngresoCodigo);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -206,7 +207,7 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox txtIngresoCodigo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardarError;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemAbrir;

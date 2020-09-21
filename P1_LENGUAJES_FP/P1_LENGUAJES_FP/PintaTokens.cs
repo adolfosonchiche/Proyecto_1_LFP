@@ -8,7 +8,7 @@ namespace P1_LENGUAJES_FP
 {
     class PintaTokens
     {
-
+        /*declaracion de variables*/
         string[] textoReservado = new string[] { "entero", "decimal", "cadena", "booleano",
             "caracter", "SI", "SINO", "SINO_SI", "MIENTRAS", "HACER", "DESDE", "HASTA", "INCREMENTO",
             "verdadero", "falso"};
@@ -21,6 +21,7 @@ namespace P1_LENGUAJES_FP
         private static List<String> comentario = new List<String>(new String[] { });
         private static List<String> cadenaTexto = new List<String>(new String[] { });
 
+        /*metodo que pinta las palabras reservadas que se ingresan en el cuadro de texto*/
         public void pintarTextoReservada(RichTextBox txtTexto)
         {
 
@@ -41,7 +42,7 @@ namespace P1_LENGUAJES_FP
                     while (INDEX <= txtTexto.Text.LastIndexOf(reservadaAuxiliar))
                     {
                         txtTexto.Find(reservadaAuxiliar, INDEX, txtTexto.TextLength, RichTextBoxFinds.WholeWord); //'CUANDO LA ENCUENTRA LA SELECCIONA Y....
-
+                        //verificamos el tipo de palabra reservada
                         if (reservadaAuxiliar.Equals("entero"))
                         {
                             txtTexto.SelectionColor = Color.MediumOrchid;
@@ -94,11 +95,12 @@ namespace P1_LENGUAJES_FP
 
         }
 
+        /*metodo para pintar los signos u operadores que se ingresan en el cauadro de texto*/
         public void pintarSignosOperadores(RichTextBox txtTextoIngresado)
         {
             try
             {
-
+                //buscamos si exiten signos en el cuadro del codigo
                 foreach (String word in signosOperadores)
                 {
                     int startIndex = 0;
@@ -108,13 +110,12 @@ namespace P1_LENGUAJES_FP
                         int wordStartIndex =
                         txtTextoIngresado.Find(word, startIndex, txtTextoIngresado.TextLength,
                         RichTextBoxFinds.NoHighlight);
-                        // word.Length,
 
                         if (wordStartIndex != -1)
                         {
                             txtTextoIngresado.SelectionStart = wordStartIndex;
                             txtTextoIngresado.SelectionLength = word.Length;
-                         
+                         //verificamos el tipo de operador o signo
                             if (word.Equals("+") || word.Equals("-") || word.Equals("*") || word.Equals("/") || 
                                    word.Equals("++") || word.Equals("--") || word.Equals(">") ||
                                    word.Equals("<") || word.Equals(">=") || word.Equals("<=") ||
@@ -138,7 +139,6 @@ namespace P1_LENGUAJES_FP
 
                 }
                  txtTextoIngresado.SelectionStart = txtTextoIngresado.TextLength;
-                //txtTextoIngresado.SelectionColor = txtTextoIngresado.ForeColor;
 
             }
             catch (Exception e)
@@ -147,22 +147,25 @@ namespace P1_LENGUAJES_FP
             }
         }
 
+        /*metodo que retorna la lista de signo operadores*/
         public String[] getOperadorSigno()
         {
             return signosOperadores;
         }
 
+        /*metodo que retorna la lista de palabras reservadas*/
         public String[] getTextoReservado()
         {
             return textoReservado;
         }
 
+        /*metodo que pinta los tokens que se ingresaron
+         de forma correct */
         public void pintarTokensCompleto(RichTextBox txtTextoIngresado, List<String> tokensCompleto, 
             int tipoToken)
         {
             try
             {
-
                 foreach (String word in tokensCompleto)
                 {
                     int startIndex = 0;
@@ -172,9 +175,7 @@ namespace P1_LENGUAJES_FP
                         int wordStartIndex =
                         txtTextoIngresado.Find(word, startIndex, txtTextoIngresado.TextLength,
                         RichTextBoxFinds.NoHighlight);
-
-                        // word.Length,
-
+                        //verificamos el tipo de token ingresado para pintarlo
                         if (wordStartIndex != -1)
                         {
                             txtTextoIngresado.SelectionStart = wordStartIndex;
@@ -206,7 +207,6 @@ namespace P1_LENGUAJES_FP
 
                 }
                 txtTextoIngresado.SelectionStart = txtTextoIngresado.TextLength;
-               // txtTextoIngresado.SelectionColor = txtTextoIngresado.ForeColor;
 
             }
             catch (Exception e)
@@ -215,41 +215,49 @@ namespace P1_LENGUAJES_FP
             }
         }
 
+        /*metodo para ingresar un nuevo valor a la lista de numeros enteros*/
         public void setNumeroEntero(String num)
         {
             numeroEnteros.Add(num);
         }
 
+        /*metodo para ingresar un nuevo valor a la lista de numeros decimal*/
         public void setNumeroDecimal(String num)
         {
             numeroDecimal.Add(num);
         }
 
+        /*metodo para ingresar un nuevo valor a la lista de cadena de texto*/
         public void setCadenaTexto(String text)
         {
             cadenaTexto.Add(text);
         }
 
+        /*metodo para ingresar un nuevo valor a la lista de comentarios*/
         public void setComentario(String com)
         {
             comentario.Add(com);
         }
 
+        /*metodo retorna la lista de numeros enteros*/
         public List<String> getNumeroEntero()
         {
             return numeroEnteros;
         }
 
+        /*metodo retorna la lista de numeros decimal*/
         public List<String> getNumeroDecimal()
         {
             return numeroDecimal;
         }
 
+        /*metodo retorna la lista cadena de texto*/
         public List<String> getCadenaTexto()
         {
             return cadenaTexto;
         }
 
+        /*metodo retorna la lista de comentario*/
         public List<String> getComentario()
         {
             return comentario;
