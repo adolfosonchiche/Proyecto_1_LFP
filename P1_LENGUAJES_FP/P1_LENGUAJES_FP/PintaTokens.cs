@@ -20,7 +20,6 @@ namespace P1_LENGUAJES_FP
         private static List<String> numeroDecimal = new List<String>(new String[] { });
         private static List<String> comentario = new List<String>(new String[] { });
         private static List<String> cadenaTexto = new List<String>(new String[] { });
-        private static List<String> caracter = new List<String>(new String[] { });
 
         /*metodo que pinta las palabras reservadas que se ingresan en el cuadro de texto*/
         public void pintarTextoReservada(RichTextBox txtTexto)

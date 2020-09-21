@@ -49,7 +49,7 @@
             // 
             // txtIngresoCodigo
             // 
-            this.txtIngresoCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtIngresoCodigo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtIngresoCodigo.Location = new System.Drawing.Point(26, 40);
             this.txtIngresoCodigo.Name = "txtIngresoCodigo";
             this.txtIngresoCodigo.Size = new System.Drawing.Size(890, 376);
