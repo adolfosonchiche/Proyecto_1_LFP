@@ -43,6 +43,12 @@ namespace P1_LENGUAJES_FP
                 errorToken = true;
                 return 1;
             }
+            else if (tok.Equals("."))
+            {
+                errorToken = true;
+                puntoEstadoB++;
+                return 2;
+            }
             else
             {
                 errorToken = true;
@@ -75,6 +81,7 @@ namespace P1_LENGUAJES_FP
             tok = token.ToString();
             if (tok.Equals("*"))
             {
+                cadCom = 1;
                 errorToken = true;
                 return 11;
             }
@@ -90,6 +97,7 @@ namespace P1_LENGUAJES_FP
             tok = token.ToString();
             if (tok.Equals("\""))
             {
+                cadCom = 0;
                 errorToken = false;
                 return 3;
             }           
@@ -125,6 +133,7 @@ namespace P1_LENGUAJES_FP
             tok = token.ToString();
             if (tok.Equals("/"))
             {
+                cadCom = 1;
                 errorToken = false;
                 return 3;
             }

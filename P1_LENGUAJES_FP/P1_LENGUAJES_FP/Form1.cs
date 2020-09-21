@@ -16,6 +16,13 @@ namespace P1_LENGUAJES_FP
         private Automata automata;
         private PintaTokens pinta;
         private String mensaje = "";
+        private static int line = 0;
+        private static int column = 0;
+        /*List<String> numeroEnteros = new List<String>(new String[] { });
+        List<String> numeroDecimal = new List<String>(new String[] { });
+        List<String> comentario = new List<String>(new String[] { });
+        List<String> cadenaTexto = new List<String>(new String[] { });
+        List<String> caracteres = new List<String>(new String[] { });*/
 
         public Form1()
         {
@@ -69,6 +76,7 @@ namespace P1_LENGUAJES_FP
             if (archivo.getPat().Equals("") && mensaje.Equals(""))
             {
                 archivo.guardarDocumeto(mensaje);
+                txtSalidaError.Clear();
                 txtIngresoCodigo.Clear();
             }
             else
@@ -83,6 +91,7 @@ namespace P1_LENGUAJES_FP
             if (archivo.getPat().Equals("") && mensaje.Equals(""))
             {
                 txtIngresoCodigo.Clear();
+                txtSalidaError.Clear();
                 mensaje = "";
                 archivo.setPat("");
             }
@@ -92,15 +101,37 @@ namespace P1_LENGUAJES_FP
             }
         }
 
-        private void txtIngresoCodigo_KeyUp(object sender, KeyEventArgs e)
-        {
-            pinta.pintarTextoReservada(txtIngresoCodigo);
-            pinta.pintarSignosOperadores(txtIngresoCodigo);
-        }
-
         private void txtIngresoCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            automata.obtenerEstado(e, txtSalidaError);
+            obtenerPosicion();
+
+            automata.obtenerEstado(e, txtSalidaError, txtIngresoCodigo);
+           
+            pinta.pintarTextoReservada(txtIngresoCodigo);
+            pinta.pintarSignosOperadores(txtIngresoCodigo);
+            pinta.pintarTokensCompleto(txtIngresoCodigo, pinta.getCadenaTexto(), 3);
+            pinta.pintarTokensCompleto(txtIngresoCodigo, pinta.getNumeroEntero(), 0);
+            pinta.pintarTokensCompleto(txtIngresoCodigo, pinta.getNumeroDecimal(), 1);
+            pinta.pintarTokensCompleto(txtIngresoCodigo, pinta.getComentario(), 4);
+
+        }
+
+        private void txtIngresoCodigo_Click(object sender, EventArgs e)
+        {
+            obtenerPosicion();
+        }
+
+        public void obtenerPosicion()
+        {
+            // retorna la linea .
+            int index = txtIngresoCodigo.SelectionStart;
+            line = txtIngresoCodigo.GetLineFromCharIndex(index);
+            int fila = line + 1;
+            labelFila.Text = "fila: " + fila.ToString();
+            // retorna la columna.
+            int firstChar = txtIngresoCodigo.GetFirstCharIndexFromLine(line);
+            column = index - firstChar + 1;
+            labelColumna.Text = "columna: " + column.ToString();
         }
     }
 }

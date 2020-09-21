@@ -52,15 +52,15 @@
             this.txtIngresoCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtIngresoCodigo.Location = new System.Drawing.Point(26, 40);
             this.txtIngresoCodigo.Name = "txtIngresoCodigo";
-            this.txtIngresoCodigo.Size = new System.Drawing.Size(762, 296);
+            this.txtIngresoCodigo.Size = new System.Drawing.Size(854, 354);
             this.txtIngresoCodigo.TabIndex = 0;
             this.txtIngresoCodigo.Text = "";
+            this.txtIngresoCodigo.Click += new System.EventHandler(this.txtIngresoCodigo_Click);
             this.txtIngresoCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIngresoCodigo_KeyPress);
-            this.txtIngresoCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIngresoCodigo_KeyUp);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 512);
+            this.button1.Location = new System.Drawing.Point(26, 585);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -77,7 +77,7 @@
             this.menuAyuda});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(823, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(922, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -147,17 +147,17 @@
             // 
             // txtSalidaError
             // 
-            this.txtSalidaError.Location = new System.Drawing.Point(26, 390);
+            this.txtSalidaError.Location = new System.Drawing.Point(26, 451);
             this.txtSalidaError.Name = "txtSalidaError";
             this.txtSalidaError.ReadOnly = true;
-            this.txtSalidaError.Size = new System.Drawing.Size(762, 116);
+            this.txtSalidaError.Size = new System.Drawing.Size(854, 128);
             this.txtSalidaError.TabIndex = 3;
             this.txtSalidaError.Text = "";
             // 
             // labeOutput
             // 
             this.labeOutput.AutoSize = true;
-            this.labeOutput.Location = new System.Drawing.Point(26, 372);
+            this.labeOutput.Location = new System.Drawing.Point(26, 433);
             this.labeOutput.Name = "labeOutput";
             this.labeOutput.Size = new System.Drawing.Size(41, 15);
             this.labeOutput.TabIndex = 4;
@@ -166,26 +166,26 @@
             // labelFila
             // 
             this.labelFila.AutoSize = true;
-            this.labelFila.Location = new System.Drawing.Point(636, 347);
+            this.labelFila.Location = new System.Drawing.Point(717, 397);
             this.labelFila.Name = "labelFila";
-            this.labelFila.Size = new System.Drawing.Size(31, 15);
+            this.labelFila.Size = new System.Drawing.Size(40, 15);
             this.labelFila.TabIndex = 5;
-            this.labelFila.Text = "Fila: ";
+            this.labelFila.Text = "Fila:  1";
             // 
             // labelColumna
             // 
             this.labelColumna.AutoSize = true;
-            this.labelColumna.Location = new System.Drawing.Point(478, 347);
+            this.labelColumna.Location = new System.Drawing.Point(539, 397);
             this.labelColumna.Name = "labelColumna";
-            this.labelColumna.Size = new System.Drawing.Size(62, 15);
+            this.labelColumna.Size = new System.Drawing.Size(71, 15);
             this.labelColumna.TabIndex = 6;
-            this.labelColumna.Text = "Columna: ";
+            this.labelColumna.Text = "Columna:  1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 547);
+            this.ClientSize = new System.Drawing.Size(922, 620);
             this.Controls.Add(this.labelColumna);
             this.Controls.Add(this.labelFila);
             this.Controls.Add(this.labeOutput);

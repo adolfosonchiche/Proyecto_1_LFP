@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Diagnostics.Tracing;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,9 +12,13 @@ namespace P1_LENGUAJES_FP
         private EstadoAceptacion aceptacion;
         private EstadoNoAceptacion noAceptacion;
         protected static int estado = 0;
+        protected static int puntoEstadoB = 0;
+        private static int tipoToken = 0;
+        protected static int cadCom = 0;
         protected Boolean moverToken = false;
         protected static Boolean errorToken = false;
         protected string tokens = "";
+        protected string comentar = "";
         protected PintaTokens pintaT;
         protected String tok = "";
         private string[] signosOperadores = new string[] {"+", "-", "++", "--", "<", ">",
@@ -26,7 +31,7 @@ namespace P1_LENGUAJES_FP
             this.pintaT = pintar;
         }
 
-        public void obtenerEstado(KeyPressEventArgs e, RichTextBox rtbError)
+        public void obtenerEstado(KeyPressEventArgs e, RichTextBox rtbError, RichTextBox codigo)
         {
             Char token = e.KeyChar;
 
@@ -36,6 +41,7 @@ namespace P1_LENGUAJES_FP
                     || token.ToString().Equals("\r"))
                 {
                     moverToken = false;
+                    
                     break;
                 }
                 else
@@ -56,20 +62,23 @@ namespace P1_LENGUAJES_FP
 
             if (moverToken == true)
             {
-               //verificar si el usuario borra un caracter (token)
-                if (token.Equals(''))
-                {                  
-                    String a = tokens.Remove(tokens.Length - 1, 1);
-                    tokens = a;
-                    String b = tokens.Remove(0, a.Length - 1);
-                    
-                    token = Convert.ToChar(b);
-                    errorToken = false;
-                }
-                else
-                {
-                    tokens += token.ToString();
-                }
+                //verificar si el usuario borra un caracter (token)
+                try {
+                    if (token.Equals('') && !tokens.Equals(""))
+                    {
+                        String a = tokens.Remove(tokens.Length - 1, 1);
+                        tokens = a;
+                        String b = tokens.Remove(0, a.Length - 1);
+
+                        token = Convert.ToChar(b);
+                        errorToken = false;
+                    }
+                    else
+                    {
+                        tokens += token.ToString();
+                    }
+                } catch (Exception) { }
+                
 
                 switch (estado)
                 {
@@ -133,6 +142,7 @@ namespace P1_LENGUAJES_FP
                     if (pintaT.getTextoReservado()[ctd].Equals(tokens))
                     {
                         errorToken = false;
+                        cadCom = 10;
                         break;
                     }
                 }
@@ -141,11 +151,46 @@ namespace P1_LENGUAJES_FP
                 {
                     rtbError.AppendText("Error: no se reconoce token: " + tokens + "\n");
                 }
+                else
+                {
+                    if(puntoEstadoB == 0 && estado == 1)
+                    {
+                        tipoToken = 0;
+                        pintaT.setNumeroEntero(tokens);
+                    }
+                    else if(puntoEstadoB == 1 && estado == 1)
+                    {
+                        pintaT.setNumeroDecimal(tokens);
+                        tipoToken = 1;
+                    }
+                    else if (cadCom == 0)
+                    {
+                        pintaT.setCadenaTexto(tokens);
+                        tipoToken = 3;
+                    } else if((cadCom == 1 && estado != 0))
+                    {
+                        
+                        pintaT.setComentario(tokens);                      
+                        tipoToken = 4;
+                    }
+                    else if (estado == 10)
+                    {
+                        pintaT.setComentario(tokens);
+                        tipoToken = 4;
+                    }
+                }
 
                 tokens = "";
                 estado = 0;
+                puntoEstadoB = 0;
+
             }            
 
+        }
+
+        public int getTipoToken()
+        {
+            return tipoToken;
         }
       
     }
