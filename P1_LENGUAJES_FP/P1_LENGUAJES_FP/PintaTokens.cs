@@ -9,9 +9,9 @@ namespace P1_LENGUAJES_FP
     class PintaTokens
     {
         /*declaracion de variables*/
-        string[] textoReservado = new string[] { "entero", "decimal", "cadena", "booleano",
+        private static List<String> textoReservado = new List<String>(new String[] {"entero", "decimal", "cadena", "booleano",
             "caracter", "SI", "SINO", "SINO_SI", "MIENTRAS", "HACER", "DESDE", "HASTA", "INCREMENTO",
-            "verdadero", "falso"};
+            "verdadero", "falso"});
 
         string[] signosOperadores = new string[] {"+", "-", "*", "++", "--", "/", "<", ">",
            "<=", ">=", "==", "!=", "!", "||", "&&", "(", ")", "=", ";"};
@@ -20,6 +20,7 @@ namespace P1_LENGUAJES_FP
         private static List<String> numeroDecimal = new List<String>(new String[] { });
         private static List<String> comentario = new List<String>(new String[] { });
         private static List<String> cadenaTexto = new List<String>(new String[] { });
+        private static List<String> caracter = new List<String>(new String[] { });
 
         /*metodo que pinta las palabras reservadas que se ingresan en el cuadro de texto*/
         public void pintarTextoReservada(RichTextBox txtTexto)
@@ -60,7 +61,7 @@ namespace P1_LENGUAJES_FP
                         {
                             txtTexto.SelectionColor = Color.Orange;
                         }
-                        else if (reservadaAuxiliar.Equals("caracter"))
+                        else if (reservadaAuxiliar.Equals("caracter") || reservadaAuxiliar.Length == 1)
                         {
                             txtTexto.SelectionColor = Color.SaddleBrown;
                         }                       
@@ -154,7 +155,7 @@ namespace P1_LENGUAJES_FP
         }
 
         /*metodo que retorna la lista de palabras reservadas*/
-        public String[] getTextoReservado()
+        public List<String> getTextoReservado()
         {
             return textoReservado;
         }
@@ -237,6 +238,17 @@ namespace P1_LENGUAJES_FP
         public void setComentario(String com)
         {
             comentario.Add(com);
+        }
+        /*metodo para ingresar un nuevo valor a la lista de comentarios*/
+        public void setCaracter(String ca)
+        {
+            textoReservado.Add(ca);
+        }
+
+        /*metodo retorna la lista de numeros enteros*/
+        public List<String> getCaracter()
+        {
+            return caracter;
         }
 
         /*metodo retorna la lista de numeros enteros*/

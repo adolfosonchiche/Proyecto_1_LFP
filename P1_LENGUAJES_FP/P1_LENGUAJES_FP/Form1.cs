@@ -112,7 +112,7 @@ namespace P1_LENGUAJES_FP
             {
                 obtenerPosicion();
 
-                automata.obtenerEstado(e, txtSalidaError);
+                automata.obtenerEstado(e, txtSalidaError, line +1);
 
                 pinta.pintarTextoReservada(txtIngresoCodigo);
                 pinta.pintarSignosOperadores(txtIngresoCodigo);

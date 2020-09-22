@@ -23,7 +23,7 @@ namespace P1_LENGUAJES_FP
         protected PintaTokens pintaT;
         protected String tok = "";
         private string[] signosOperadores = new string[] {"+", "-", "++", "--", "<", ">",
-           "<=", ">=", "==", "!=", "!", "||", "&&", "(", ")", "=", ";"};
+           "<=", ">=", "==", "!=", "!", "||", "&&", "(", ")", "=", ";", ",", "*"};
 
         /*metodo para instanciar algunas variables*/
         public void iniciarVaiables(PintaTokens pintar)
@@ -36,7 +36,7 @@ namespace P1_LENGUAJES_FP
         /*metodo para obtener el movimineto en los estados 
          * e imprime si exite error en el token, verifica si ya 
          * se completo un token*/
-        public void obtenerEstado(KeyPressEventArgs e, RichTextBox rtbError)
+        public void obtenerEstado(KeyPressEventArgs e, RichTextBox rtbError, int fila)
         {
             Char token = e.KeyChar;//obtenemos el token (caracter)
 
@@ -65,7 +65,10 @@ namespace P1_LENGUAJES_FP
             {
                 moverToken = true;
             }
-
+            if (estado == 4 || estado == 5 && token.Equals('*'))
+            {
+                moverToken = true;
+            }
             /*sentencia para movernos en los estados*/
             if (moverToken == true) //si se mueve entra aqui
             {
@@ -149,7 +152,7 @@ namespace P1_LENGUAJES_FP
             else if (moverToken == false)
             {
                 /*verificamos si el token es una palabra reservada para que no sea un error*/
-                for (int ctd = 0; ctd < pintaT.getTextoReservado().Length; ctd++)
+                for (int ctd = 0; ctd < pintaT.getTextoReservado().Count; ctd++)
                 {
                     if (pintaT.getTextoReservado()[ctd].Equals(tokens))
                     {
@@ -158,11 +161,16 @@ namespace P1_LENGUAJES_FP
                         break;
                     }
                 }
+                if (token.Equals('\r') && tokens.Equals(""))
+                {
+                    errorToken = false;
+                }
 
                 /*si el token no finalizo en un estado de aceptacion imprimimos que es un error*/
                 if (errorToken == true)
                 {
-                    rtbError.AppendText("Error: no se reconoce token: " + tokens + "\n");
+                    rtbError.AppendText("Error: no se reconoce token: " + tokens + "       fila: " + fila 
+                        + "\n");
                 }
                 else //si finalizo en un estado de aceptacion guardamos el token para pintarlo
                 {
@@ -175,6 +183,10 @@ namespace P1_LENGUAJES_FP
                     {
                         pintaT.setNumeroDecimal(tokens);
                         tipoToken = 1;
+                    }
+                    else if (estado == 3 && tokens.Length == 1)
+                    {
+                        pintaT.setCaracter(tokens);
                     }
                     else if (cadCom == 0)
                     {
