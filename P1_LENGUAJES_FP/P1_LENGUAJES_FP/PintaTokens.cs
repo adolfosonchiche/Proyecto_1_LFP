@@ -245,12 +245,6 @@ namespace P1_LENGUAJES_FP
         }
 
         /*metodo retorna la lista de numeros enteros*/
-        public List<String> getCaracter()
-        {
-            return caracter;
-        }
-
-        /*metodo retorna la lista de numeros enteros*/
         public List<String> getNumeroEntero()
         {
             return numeroEnteros;
