@@ -238,7 +238,7 @@ namespace P1_LENGUAJES_FP
         {
             comentario.Add(com);
         }
-        /*metodo para ingresar un nuevo valor a la lista de comentarios*/
+        /*metodo para ingresar un nuevo valor a la lista*/
         public void setCaracter(String ca)
         {
             textoReservado.Add(ca);
